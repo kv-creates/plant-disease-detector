@@ -1,0 +1,15 @@
+# NOTICE
+
+Plant Disease Detector — Copyright (c) 2024 kv-creates (MIT).
+
+Built with open-source software. Key third-party components:
+
+- Frontend: React (MIT), Vite (MIT), Tailwind CSS (MIT)
+- Backend: FastAPI (MIT), Pydantic (MIT), Pillow (HPND), httpx (BSD-3)
+- AI providers (optional, user-supplied keys): OpenAI, Anthropic — subject to
+  their respective terms. No keys are bundled with this repository.
+- Fonts: Inter (OFL-1.1) loaded via Google Fonts with system fallbacks.
+
+Sample/demo content in this repo is synthetic and for UI demonstration only.
+It is not agronomic advice. Always consult a local agricultural extension
+officer for treatment decisions.
