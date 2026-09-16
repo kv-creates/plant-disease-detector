@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import { ErrorBoundary } from './components/Feedback'
 import './styles/index.css'
+import './styles/print.css'
 
 // Apply persisted theme before first paint to avoid flash.
 try {
