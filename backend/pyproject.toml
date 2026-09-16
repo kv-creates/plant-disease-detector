@@ -1,0 +1,38 @@
+[project]
+name = "plant-disease-detector"
+version = "2.0.0"
+description = "Plant Disease Detection API using LLM vision with offline demo mode"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "fastapi==0.115.6",
+  "uvicorn[standard]==0.34.0",
+  "python-multipart==0.0.20",
+  "pydantic==2.10.4",
+  "pydantic-settings==2.7.0",
+  "python-dotenv==1.0.1",
+  "httpx==0.28.1",
+  "openai==1.59.5",
+  "anthropic==0.42.0",
+  "pillow==11.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.3.4",
+  "httpx==0.28.1",
+  "ruff==0.8.9",
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
