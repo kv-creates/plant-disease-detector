@@ -7,6 +7,7 @@ import AnalysisProgress from './components/AnalysisProgress'
 import HistoryPanel from './components/HistoryPanel'
 import SampleGallery, { sampleFileFor } from './components/SampleGallery'
 import { Hero, HowItWorks, TrustBar } from './components/Landing'
+import { FeaturesGrid, FarmerTips, PreventionCalendar } from './components/InfoSections'
 import { Toasts } from './components/Feedback'
 import { useTheme } from './hooks/useTheme'
 import { detectDisease, getProviders } from './utils/api'
@@ -156,6 +157,7 @@ export default function App() {
           <div className="animate-fade-in">
             <Hero onAnalyze={() => window.scrollTo({ top: 400, behavior: 'smooth' })} onDemo={() => handleDemo()} t={tr} />
             <TrustBar />
+            <FeaturesGrid />
             <div className="card p-5 sm:p-8" aria-label="Analyzer">
               {phase === 'analyzing' ? (
                 <AnalysisProgress preview={preview} provider={provider} />
@@ -175,6 +177,8 @@ export default function App() {
                 </div>
               )}
             </div>
+            <FarmerTips />
+            <PreventionCalendar />
           </div>
         )}
 
