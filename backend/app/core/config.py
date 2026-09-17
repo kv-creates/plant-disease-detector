@@ -7,7 +7,7 @@ class Settings(BaseSettings):
 
     app_name: str = "Plant Disease Detector"
     api_version: str = "v1"
-    app_version: str = "2.0.0"
+    app_version: str = "2.1.0"
     debug: bool = True
 
     openai_api_key: Optional[str] = None
