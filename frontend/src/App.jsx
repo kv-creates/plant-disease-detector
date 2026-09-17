@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import SkipLink from './components/SkipLink'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import UploadZone from './components/UploadZone'
@@ -142,6 +143,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SkipLink />
       <Header
         activeTab={activeTab}
         onTab={setActiveTab}
@@ -152,7 +154,7 @@ export default function App() {
         backendOnline={backendOnline}
       />
 
-      <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+      <main id="analyzer" className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
         {activeTab === 'analyze' && (
           <div className="animate-fade-in">
             <Hero onAnalyze={() => window.scrollTo({ top: 400, behavior: 'smooth' })} onDemo={() => handleDemo()} t={tr} />
