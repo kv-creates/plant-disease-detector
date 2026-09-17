@@ -13,6 +13,7 @@ from fastapi.responses import JSONResponse
 
 from app.core.config import settings
 from app.api.routes import router as api_router
+from app.middleware.request_id import RequestIdMiddleware
 from app.api.extra import router as extra_router
 
 
@@ -54,6 +55,7 @@ def create_app() -> FastAPI:
         openapi_url="/openapi.json",
     )
 
+    app.add_middleware(RequestIdMiddleware)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.cors_origins,
@@ -76,6 +78,8 @@ def create_app() -> FastAPI:
         response.headers["Referrer-Policy"] = "no-referrer"
         response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
         response.headers["X-Process-Time-ms"] = f"{elapsed_ms:.1f}"
+        if request.method == "GET" and request.url.path.startswith("/api/v1/diseases"):
+            response.headers["Cache-Control"] = "public, max-age=3600"
         return response
 
     app.include_router(api_router)
